@@ -1,0 +1,20 @@
+server:
+  port: 8002
+spring:
+  rabbitmq:
+    host: 192.168.64.13
+    port: 5672
+    username: admin
+    password: 123456
+    virtual-host: rabbit
+
+    #acknowledge-mode: none 自动模式（默认开启）
+    #acknowledge-mode: manual  手动模式
+    #acknowledge-mode: auto 自动模式 （根据侦听器检测是正常返回、还是抛出异常来发出 ack/nack）
+    #手动模式可以确保我们在没有签收的情况下保证消息的不丢失。
+    #即使服务器宕机的情况下，只要没有手动ack,都是unacked状态,
+    #这时候会将这条消息重新放回队列，变成ready状态。
+    # 开启消息手动确认(不设置默认为none，none代表自动确认)
+#    listener:
+#      simple:
+#        acknowledge-mode: manual

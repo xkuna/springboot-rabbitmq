@@ -1,0 +1,17 @@
+server:
+  port: 8001
+spring:
+  rabbitmq:
+    host: 192.168.64.13
+    port: 5672
+    username: admin
+    password: 123456
+    virtual-host: rabbit
+    # 消息发送 启用confirm确认(确认消息进入broker)
+    publisher-confirm-type: correlated
+    #低版本的springboot 这样启用confirm确认
+    #publisher-confirms: true
+
+    # 消息发送 启用returns确认(确认消息进入队列)
+    # 同时要设置 rabbitTemplate.setMandatory(true); 才能完全生效
+    publisher-returns: true
